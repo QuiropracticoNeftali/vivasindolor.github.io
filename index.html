@@ -1,0 +1,1217 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neftalí Vázquez - Quiropráctico, Osteópata y Terapeuta Holístico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E5F74',
+                        secondary: '#2A93D5',
+                        accent: '#37CAEC',
+                        light: '#E0F7FA',
+                        dark: '#0D2B36'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .bg-pattern {
+            background-color: #f9f9f9;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231E5F74' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(to right, transparent, #2A93D5, transparent);
+            margin: 2rem auto;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .testimonial-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 8rem;
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            color: rgba(55, 202, 236, 0.1);
+            font-family: 'Playfair Display', serif;
+            z-index: 0;
+        }
+        
+        .service-item {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-bottom: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(55, 202, 236, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .service-item:hover::before {
+            left: 100%;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px -10px rgba(42, 147, 213, 0.3);
+            border-bottom: 3px solid #37CAEC;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #1E5F74, #2A93D5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(42, 147, 213, 0.4);
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+        }
+        
+        .value-icon {
+            background: linear-gradient(135deg, rgba(55, 202, 236, 0.1), rgba(42, 147, 213, 0.1));
+            box-shadow: 0 5px 15px -5px rgba(42, 147, 213, 0.3);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #37CAEC;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(55, 202, 236, 0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            top: -75px;
+            right: -75px;
+        }
+        
+        .hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .hero-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+        }
+        
+        .hero-wave .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        .pulse-dot {
+            position: relative;
+        }
+        
+        .pulse-dot::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(55, 202, 236, 0.6);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            70% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            transition: all 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        
+        .sticky-header.visible {
+            transform: translateY(0);
+            opacity: 1;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-service {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .featured-service::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(55, 202, 236, 0.2), rgba(30, 95, 116, 0.2));
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .featured-service::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(55, 202, 236, 0.1), rgba(30, 95, 116, 0.1));
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .highlight-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #37CAEC, #2A93D5);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 3px 10px -3px rgba(42, 147, 213, 0.5);
+            transform: rotate(3deg);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #1E5F74, #2A93D5, #37CAEC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(55, 202, 236, 0.1);
+            border-radius: 50%;
+            animation: float-random 8s infinite ease-in-out;
+        }
+        
+        .floating-elements::before {
+            top: 20%;
+            left: 10%;
+            animation-delay: -2s;
+        }
+        
+        .floating-elements::after {
+            top: 60%;
+            right: 15%;
+            animation-delay: -4s;
+        }
+        
+        @keyframes float-random {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+            75% { transform: translateY(-30px) rotate(270deg); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-pattern">
+    <!-- Sticky Header (appears on scroll) -->
+    <header id="sticky-header" class="sticky-header bg-white py-3">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-3xl text-secondary mr-3"><i class="fas fa-spa"></i></div>
+                    <div>
+                        <h1 class="text-xl font-bold text-primary">Neftalí Vázquez</h1>
+                        <p class="text-xs text-secondary">Quiropráctico & Terapeuta Holístico</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#valores" class="nav-link text-gray-700 hover:text-secondary transition-colors">Filosofía</a>
+                    <a href="#servicios" class="nav-link text-gray-700 hover:text-secondary transition-colors">Servicios</a>
+                    <a href="#ubicacion" class="nav-link text-gray-700 hover:text-secondary transition-colors">Ubicación</a>
+                    <a href="#contacto" class="cta-button text-white font-medium py-2 px-4 rounded-full text-sm">Agendar Cita</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-primary text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-dark bg-opacity-95 z-50 hidden flex flex-col justify-center items-center">
+        <button id="close-menu" class="absolute top-6 right-6 text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="flex flex-col space-y-8 text-center">
+            <a href="#valores" class="text-white text-2xl hover:text-accent transition-colors">Filosofía</a>
+            <a href="#servicios" class="text-white text-2xl hover:text-accent transition-colors">Servicios</a>
+            <a href="#ubicacion" class="text-white text-2xl hover:text-accent transition-colors">Ubicación</a>
+            <a href="#contacto" class="text-white text-2xl hover:text-accent transition-colors">Contacto</a>
+        </nav>
+    </div>
+
+    <!-- Main Header -->
+    <header class="bg-gradient-to-r from-primary to-secondary text-white shadow-xl relative">
+        <div class="container mx-auto px-4 py-6">
+            <nav class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="text-4xl mr-3"><i class="fas fa-spa"></i></div>
+                    <div>
+                        <h1 class="text-3xl font-bold">Neftalí Vázquez</h1>
+                        <p class="text-sm text-accent">Quiropráctico, Osteópata y Terapeuta Holístico</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#valores" class="nav-link hover:text-accent transition-colors">Filosofía</a>
+                    <a href="#servicios" class="nav-link hover:text-accent transition-colors">Servicios</a>
+                    <a href="#ubicacion" class="nav-link hover:text-accent transition-colors">Ubicación</a>
+                    <a href="#contacto" class="bg-white text-primary font-medium py-2 px-6 rounded-full hover:bg-light transition-colors shadow-md">Contacto</a>
+                </div>
+                <button id="main-mobile-button" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-secondary to-primary text-white py-20 px-4 relative overflow-hidden">
+        <div class="floating-elements"></div>
+        <div class="container mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        <span class="block gradient-text">VIVA</span>
+                        <span class="block text-accent animate-pulse">SIN DOLOR</span>
+                    </h2>
+                    <p class="text-xl mb-10 max-w-lg">Recupera tu bienestar a través de un enfoque integral que combina técnicas manuales, terapias alternativas y atención personalizada.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contacto" class="cta-button text-white font-bold py-4 px-8 rounded-full text-lg text-center">
+                            Agendar Cita
+                        </a>
+                        <a href="#servicios" class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-white hover:text-primary transition-colors text-center">
+                            Descubrir Servicios
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative animate-float">
+                        <svg class="w-64 h-64 md:w-80 md:h-80" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#E0F7FA" d="M47.7,-57.2C59.9,-45.8,67.2,-29.6,69.2,-13.1C71.2,3.4,68,20.2,59.3,33.1C50.6,46,36.5,55,20.6,62.4C4.8,69.8,-12.8,75.6,-28.9,71.5C-45,67.4,-59.6,53.4,-67.4,36.9C-75.2,20.4,-76.2,1.3,-71.2,-15.2C-66.2,-31.7,-55.2,-45.7,-41.7,-56.7C-28.2,-67.7,-14.1,-75.7,1.3,-77.2C16.7,-78.7,33.4,-73.7,47.7,-57.2Z" transform="translate(100 100)" />
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-primary text-9xl">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-20 left-10 text-white opacity-10 text-9xl">
+            <i class="fas fa-spa"></i>
+        </div>
+        <div class="absolute bottom-20 right-10 text-white opacity-10 text-9xl">
+            <i class="fas fa-hands"></i>
+        </div>
+        
+        <!-- Wave bottom -->
+        <div class="hero-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Misión, Visión y Valores -->
+    <section id="valores" class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Nuestra Filosofía</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Conoce los principios que guían nuestro trabajo y compromiso con tu bienestar.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+                <div class="bg-white p-10 rounded-xl shadow-lg border-l-8 border-secondary transform transition-transform hover:-translate-y-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-bullseye text-3xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-primary">Misión</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed">Ayudar a las personas a vivir sin dolor, recuperando su movilidad y bienestar mediante técnicas terapéuticas naturales, seguras y personalizadas.</p>
+                </div>
+                
+                <div class="bg-white p-10 rounded-xl shadow-lg border-l-8 border-secondary transform transition-transform hover:-translate-y-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-eye text-3xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-primary">Visión</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed">Ser un referente en la región como centro de confianza y resultados en el cuidado quiropráctico, osteopático y holístico, promoviendo una vida plena y sin dolor.</p>
+                </div>
+            </div>
+            
+            <h3 class="text-3xl font-bold text-center text-primary mb-10">Nuestros Valores</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition-transform hover:-translate-y-2 h-full flex flex-col">
+                    <div class="value-icon w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-heart text-2xl text-secondary"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-primary">Empatía</h4>
+                    <p class="text-gray-600 text-sm flex-grow">Escuchamos y entendemos a cada paciente en su individualidad.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition-transform hover:-translate-y-2 h-full flex flex-col">
+                    <div class="value-icon w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-user-md text-2xl text-secondary"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-primary">Profesionalismo</h4>
+                    <p class="text-gray-600 text-sm flex-grow">Atención con ética, responsabilidad y calidad en cada tratamiento.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition-transform hover:-translate-y-2 h-full flex flex-col">
+                    <div class="value-icon w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-balance-scale text-2xl text-secondary"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-primary">Bienestar Integral</h4>
+                    <p class="text-gray-600 text-sm flex-grow">Tratamos cuerpo, mente y emociones como un todo inseparable.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition-transform hover:-translate-y-2 h-full flex flex-col">
+                    <div class="value-icon w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-handshake text-2xl text-secondary"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-primary">Honestidad</h4>
+                    <p class="text-gray-600 text-sm flex-grow">Recomendaciones claras, sinceras y personalizadas siempre.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition-transform hover:-translate-y-2 h-full flex flex-col md:col-span-2 lg:col-span-1">
+                    <div class="value-icon w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-award text-2xl text-secondary"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-primary">Excelencia</h4>
+                    <p class="text-gray-600 text-sm flex-grow">Mejora continua en técnicas, atención y resultados para ti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Servicios Destacados -->
+    <section class="py-16 px-4 bg-pattern">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Servicios Destacados</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Nuestras terapias más avanzadas para un diagnóstico preciso y tratamiento efectivo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Alineación Alphabiotica -->
+                <div class="featured-service bg-white p-10 rounded-xl shadow-xl relative overflow-hidden">
+                    <span class="highlight-badge">Exclusivo</span>
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mr-6 pulse-dot">
+                            <i class="fas fa-dna text-3xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-primary">Alineación Alphabiotica</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Técnica revolucionaria que equilibra los hemisferios cerebrales y libera el estrés acumulado en el sistema nervioso central, permitiendo que el cuerpo active sus mecanismos naturales de autocuración.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Equilibrio neurológico inmediato</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Reducción del estrés crónico</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Mejora de la postura y alineación corporal</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Potenciación de la capacidad de autocuración</span>
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="inline-block cta-button text-white font-bold py-3 px-8 rounded-full">
+                        Agendar Sesión
+                    </a>
+                </div>
+                
+                <!-- Terapia Cuántica Emocional -->
+                <div class="featured-service bg-white p-10 rounded-xl shadow-xl relative overflow-hidden">
+                    <span class="highlight-badge">Terapia Avanzada</span>
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mr-6 pulse-dot">
+                            <i class="fas fa-brain text-3xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-primary">Terapia Cuántica Emocional</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Abordaje terapéutico que trabaja con la energía sutil del cuerpo para liberar bloqueos emocionales, traumas y patrones limitantes que afectan tu salud física y emocional.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Liberación de traumas y emociones reprimidas</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Transformación de patrones mentales negativos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Aumento de la claridad mental y emocional</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary mr-3"></i>
+                            <span>Mejora del bienestar general y calidad de vida</span>
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="inline-block cta-button text-white font-bold py-3 px-8 rounded-full">
+                        Conocer Más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Beneficios Rápidos -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-white to-light">
+                    <div class="text-4xl text-secondary mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Alivio del Dolor</h3>
+                    <p class="text-gray-600">Técnicas efectivas para reducir dolores crónicos y agudos desde la primera sesión.</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-white to-light">
+                    <div class="text-4xl text-secondary mb-4">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Atención Personalizada</h3>
+                    <p class="text-gray-600">Tratamientos adaptados a tus necesidades específicas para resultados óptimos.</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-white to-light">
+                    <div class="text-4xl text-secondary mb-4">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Enfoque Holístico</h3>
+                    <p class="text-gray-600">Tratamos la causa raíz de tus dolencias, no solo los síntomas superficiales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Ubicación y Mapa -->
+    <section id="ubicacion" class="py-16 px-4 bg-pattern">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Nuestro Consultorio</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Visítanos en nuestro consultorio principal en San Luis Río Colorado, Sonora.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-clinic-medical text-3xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Consultorio Principal</h3>
+                    </div>
+                    
+                    <div class="space-y-6 pl-4">
+                        <div class="flex items-start">
+                            <div class="text-secondary mr-4 mt-1"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4 class="font-bold mb-1">Dirección:</h4>
+                                <p class="text-gray-700">Av. Obregón #123, Col. Centro<br>San Luis Río Colorado, Sonora, México<br>CP 83400</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-secondary mr-4 mt-1"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h4 class="font-bold mb-1">Horario de Atención:</h4>
+                                <p class="text-gray-700">Lunes a Viernes: 9:00 AM - 7:00 PM<br>Sábados: 9:00 AM - 2:00 PM<br>Domingos: Cerrado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-secondary mr-4 mt-1"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h4 class="font-bold mb-1">Teléfonos:</h4>
+                                <p class="text-gray-700">
+                                    <a href="tel:6531028960" class="hover:text-secondary transition-colors">653 102 8960</a><br>
+                                    <a href="tel:6531645678" class="hover:text-secondary transition-colors">653 164 5678</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-secondary mr-4 mt-1"><i class="fas fa-info-circle"></i></div>
+                            <div>
+                                <h4 class="font-bold mb-1">Información Adicional:</h4>
+                                <p class="text-gray-700">Estacionamiento disponible<br>Acceso para personas con discapacidad<br>Atención bilingüe (Español/Inglés)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-center">
+                        <a href="#contacto" class="cta-button text-white font-bold py-3 px-8 rounded-full">
+                            Agendar Cita
+                        </a>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Zonas de Atención -->
+    <section id="zonas" class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Zonas de Atención</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Brindamos servicios en diversas localidades para estar siempre cerca de ti cuando nos necesites.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center mr-4 pulse-dot">
+                            <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">San Luis Río Colorado</h3>
+                    </div>
+                    <p class="text-gray-600 pl-16">Sonora, México</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center mr-4 pulse-dot">
+                            <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">San Luis, Arizona</h3>
+                    </div>
+                    <p class="text-gray-600 pl-16">Estados Unidos</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center mr-4 pulse-dot">
+                            <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">Yuma</h3>
+                    </div>
+                    <p class="text-gray-600 pl-16">Arizona, Estados Unidos</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center mr-4 pulse-dot">
+                            <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">Gadsden</h3>
+                    </div>
+                    <p class="text-gray-600 pl-16">Arizona, Estados Unidos</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center mr-4 pulse-dot">
+                            <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">Somerton</h3>
+                    </div>
+                    <p class="text-gray-600 pl-16">Arizona, Estados Unidos</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-light rounded-full flex items-center justify-center mr-4 pulse-dot">
+                            <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">Fortuna Foothills</h3>
+                    </div>
+                    <p class="text-gray-600 pl-16">Arizona, Estados Unidos</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <div class="inline-block bg-light p-6 rounded-xl shadow-md">
+                    <p class="text-gray-700 italic text-lg">We provide bilingual care across Yuma County and San Luis AZ. Schedule your appointment today!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-16 px-4 bg-pattern">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Todos Nuestros Servicios</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ofrecemos una amplia gama de terapias y técnicas para ayudarte a recuperar tu bienestar físico y emocional.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. Alineación Alphabiotica -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-dna"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Alineación Alphabiotica</h3>
+                    <p class="text-gray-600 mb-6">Técnica que equilibra los hemisferios cerebrales y libera el estrés del sistema nervioso central, activando la autocuración.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Equilibrio neurológico</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Exclusivo</span>
+                    </div>
+                </div>
+                
+                <!-- 2. Masaje Relajante -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-hands"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Masaje Relajante</h3>
+                    <p class="text-gray-600 mb-6">Técnica suave que reduce el estrés, mejora la circulación y proporciona una profunda sensación de bienestar y calma.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Relajación profunda</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Popular</span>
+                    </div>
+                </div>
+                
+                <!-- 3. Masaje Descontracturante -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-spa"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Masaje Descontracturante</h3>
+                    <p class="text-gray-600 mb-6">Técnica enfocada en liberar tensiones musculares profundas, nudos y contracturas que causan dolor y limitan el movimiento.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Alivio muscular</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Recomendado</span>
+                    </div>
+                </div>
+                
+                <!-- 4. Posteopatía y Kinesiología -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-bone"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Posteopatía y Kinesiología</h3>
+                    <p class="text-gray-600 mb-6">Evaluación y tratamiento del sistema músculo-esquelético para corregir desequilibrios posturales y mejorar la funcionalidad.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Corrección postural</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Especializado</span>
+                    </div>
+                </div>
+                
+                <!-- 5. Ventosas -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-dot-circle"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Ventosas</h3>
+                    <p class="text-gray-600 mb-6">Técnica milenaria que utiliza copas de succión para mejorar la circulación, desintoxicar y aliviar dolores musculares profundos.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Desintoxicación</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Tradicional</span>
+                    </div>
+                </div>
+                
+                <!-- 6. Reflexología -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-hand-paper"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Reflexología</h3>
+                    <p class="text-gray-600 mb-6">Terapia que estimula puntos específicos en pies y manos para equilibrar la energía y promover la salud de órganos y sistemas.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Equilibrio energético</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Holístico</span>
+                    </div>
+                </div>
+                
+                <!-- 7. Terapia Cuántica Emocional -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-brain"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Terapia Cuántica Emocional</h3>
+                    <p class="text-gray-600 mb-6">Abordaje que trabaja con la energía sutil para liberar bloqueos emocionales y traumas que afectan la salud física y mental.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Liberación emocional</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Avanzado</span>
+                    </div>
+                </div>
+                
+                <!-- 8. Desintoxicación Iónica -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-water"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Desintoxicación Iónica</h3>
+                    <p class="text-gray-600 mb-6">Tratamiento que utiliza un baño de pies con agua ionizada para extraer toxinas del cuerpo y restaurar el equilibrio energético.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Limpieza corporal</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Innovador</span>
+                    </div>
+                </div>
+                
+                <!-- Escaneo Cuántico -->
+                <div class="service-item bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-4xl text-secondary mb-6"><i class="fas fa-atom"></i></div>
+                    <h3 class="font-bold text-2xl mb-4">Escaneo Cuántico</h3>
+                    <p class="text-gray-600 mb-6">Tecnología avanzada para detectar desequilibrios energéticos y evaluar el estado de salud a nivel celular.</p>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-secondary font-medium">Diagnóstico avanzado</span>
+                        <span class="bg-light text-primary px-3 py-1 rounded-full">Innovador</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Resultados -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Resultados Comprobados</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Nuestro compromiso con la excelencia se refleja en la satisfacción de nuestros pacientes.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card bg-white p-10 rounded-xl shadow-lg text-center transform transition-transform hover:-translate-y-2">
+                    <div class="text-6xl font-bold text-secondary mb-4 relative">
+                        <span class="relative z-10">1,200+</span>
+                    </div>
+                    <p class="text-xl font-medium text-gray-700">Pacientes atendidos con éxito</p>
+                    <div class="w-16 h-1 bg-accent mx-auto mt-6"></div>
+                </div>
+                
+                <div class="stat-card bg-white p-10 rounded-xl shadow-lg text-center transform transition-transform hover:-translate-y-2">
+                    <div class="text-6xl font-bold text-secondary mb-4 relative">
+                        <span class="relative z-10">96%</span>
+                    </div>
+                    <p class="text-xl font-medium text-gray-700">Satisfacción general de pacientes</p>
+                    <div class="w-16 h-1 bg-accent mx-auto mt-6"></div>
+                </div>
+                
+                <div class="stat-card bg-white p-10 rounded-xl shadow-lg text-center transform transition-transform hover:-translate-y-2">
+                    <div class="text-6xl font-bold text-secondary mb-4 relative">
+                        <span class="relative z-10">1-2</span>
+                    </div>
+                    <p class="text-xl font-medium text-gray-700">Sesiones para notar mejoría</p>
+                    <div class="w-16 h-1 bg-accent mx-auto mt-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Testimonios -->
+    <section class="py-16 px-4 bg-pattern">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Lo Que Dicen Nuestros Pacientes</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Experiencias reales de personas que han recuperado su bienestar con nuestros tratamientos.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="relative z-10">
+                        <p class="text-gray-700 italic mb-8 text-lg pl-6">"Llevaba años con dolor y finalmente encontré alivio aquí. El enfoque integral del Dr. Neftalí ha cambiado mi vida por completo."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                MR
+                            </div>
+                            <div>
+                                <h4 class="font-bold">María Rodríguez</h4>
+                                <div class="text-secondary">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="relative z-10">
+                        <p class="text-gray-700 italic mb-8 text-lg pl-6">"Muy humano, explica todo y te da confianza. Su profesionalismo y conocimiento son evidentes desde la primera consulta."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                JG
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Juan González</h4>
+                                <div class="text-secondary">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="relative z-10">
+                        <p class="text-gray-700 italic mb-8 text-lg pl-6">"En dos sesiones ya podía mover mi cuello sin dolor. Después de meses de sufrimiento, por fin encontré una solución efectiva."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                AL
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Ana López</h4>
+                                <div class="text-secondary">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Programe su Cita</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Estamos listos para ayudarle a recuperar su bienestar. Contáctenos hoy mismo.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-primary to-secondary text-white p-10 rounded-2xl shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6">Información de Contacto</h3>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-accent mb-1">Teléfono Principal</p>
+                                    <a href="tel:6531028960" class="text-xl font-medium hover:text-accent transition-colors">653 102 8960</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-accent mb-1">Teléfono Alternativo</p>
+                                    <a href="tel:6531645678" class="text-xl font-medium hover:text-accent transition-colors">653 164 5678</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fab fa-whatsapp text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-accent mb-1">WhatsApp</p>
+                                    <a href="https://wa.me/526531028960" class="text-xl font-medium hover:text-accent transition-colors">Enviar mensaje</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-language text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-accent mb-1">Idiomas</p>
+                                    <p class="text-xl font-medium">Español e Inglés</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold mb-6">Agende su Cita</h3>
+                            <p class="mb-8">Contáctenos hoy mismo para programar su consulta y comenzar su camino hacia una vida sin dolor.</p>
+                            <div class="space-y-4">
+                                <a href="tel:6531028960" class="flex items-center justify-center bg-white text-primary font-bold py-4 px-6 rounded-xl hover:bg-light transition-colors shadow-lg">
+                                    <i class="fas fa-phone mr-3"></i> Llamar Ahora
+                                </a>
+                                <a href="https://wa.me/526531028960" class="flex items-center justify-center bg-[#25D366] text-white font-bold py-4 px-6 rounded-xl hover:bg-opacity-90 transition-colors shadow-lg">
+                                    <i class="fab fa-whatsapp mr-3 text-xl"></i> Contactar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 px-4 bg-gradient-to-r from-primary to-secondary text-white text-center relative overflow-hidden">
+        <div class="floating-elements"></div>
+        <div class="container mx-auto relative z-10">
+            <h2 class="text-5xl font-bold mb-6">Tu bienestar es nuestra misión</h2>
+            <p class="text-3xl font-bold mb-10 gradient-text">¡VIVE SIN DOLOR!</p>
+            <div class="max-w-md mx-auto">
+                <a href="#contacto" class="block bg-white text-primary font-bold py-5 px-10 rounded-full text-xl hover:bg-light transition-colors shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    Agenda tu cita hoy mismo
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-10 left-10 text-white opacity-10 text-9xl">
+            <i class="fas fa-spa"></i>
+        </div>
+        <div class="absolute bottom-10 right-10 text-white opacity-10 text-9xl">
+            <i class="fas fa-hands"></i>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="text-3xl mr-3"><i class="fas fa-spa"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Neftalí Vázquez</h3>
+                            <p class="text-sm text-accent">Quiropráctico, Osteópata y Terapeuta Holístico</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">Recupera tu bienestar y vive sin dolor con nuestros tratamientos personalizados.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-primary bg-opacity-30 rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary bg-opacity-30 rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/526531028960" class="w-10 h-10 bg-primary bg-opacity-30 rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#valores" class="text-gray-300 hover:text-accent transition-colors">Filosofía</a></li>
+                        <li><a href="#servicios" class="text-gray-300 hover:text-accent transition-colors">Servicios</a></li>
+                        <li><a href="#ubicacion" class="text-gray-300 hover:text-accent transition-colors">Ubicación</a></li>
+                        <li><a href="#zonas" class="text-gray-300 hover:text-accent transition-colors">Zonas de Atención</a></li>
+                        <li><a href="#contacto" class="text-gray-300 hover:text-accent transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contáctenos</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="text-accent mr-3"><i class="fas fa-map-marker-alt"></i></div>
+                            <p class="text-gray-300">Av. Obregón #123, Col. Centro<br>San Luis Río Colorado, Sonora</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-accent mr-3"><i class="fas fa-phone"></i></div>
+                            <a href="tel:6531028960" class="text-gray-300 hover:text-accent transition-colors">653 102 8960</a>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-accent mr-3"><i class="fas fa-phone-alt"></i></div>
+                            <a href="tel:6531645678" class="text-gray-300 hover:text-accent transition-colors">653 164 5678</a>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-accent mr-3"><i class="fab fa-whatsapp"></i></div>
+                            <a href="https://wa.me/526531028960" class="text-gray-300 hover:text-accent transition-colors">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400 mb-4 md:mb-0">© 2023 Neftalí Vázquez. Todos los derechos reservados.</p>
+                <p class="text-sm text-gray-400">Diseñado con <i class="fas fa-heart text-accent"></i> para su bienestar</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    // Scroll to target
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+        
+        document.getElementById('main-mobile-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-menu').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+        
+        // Sticky header
+        const stickyHeader = document.getElementById('sticky-header');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 300) {
+                if (scrollTop < lastScrollTop) {
+                    // Scrolling up
+                    stickyHeader.classList.add('visible');
+                } else {
+                    // Scrolling down
+                    stickyHeader.classList.remove('visible');
+                }
+            } else {
+                stickyHeader.classList.remove('visible');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'957f7f13b37607a3',t:'MTc1MTMwNTcyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
